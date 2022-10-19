@@ -5,8 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
+
+    <nav class="homeLink" ><a href="/"> Home</a></nav>
     <% if (locals.messages.errors) { %>
         <% messages.errors.forEach( el => { %>
             <div class="alert alert-danger"><%= el.msg %></div>
@@ -17,10 +22,20 @@
             <div class="alert alert-danger"><%= el.msg %></div>
         <% }) %>    
     <% } %>
-    <form action="/login" method="POST">
-        <input type="email" name="email" placeholder="Email">
-        <input type="password" name="password" placeholder="Password">
-        <input type="submit">
-    </form>
+    
+    <div class="formBox">
+        <h1 class="login">Log In Page</h1>
+        <form action="/login" method="POST">
+            <label for="email" class="form-label">Email</label>
+            <input class="form-control" type="email" name="email" id="email">
+            <label for="password" class="form-label">Password</label>
+            <input class="form-control" type="password" name="password" id="password">
+            <input class="btn" type="submit">
+
+        </form>
+        <p class="message">Dont' have an accout yet?   <a href="/signup">Sign up here</a></p>
+    </div>
+
+   
 </body>
 </html>
