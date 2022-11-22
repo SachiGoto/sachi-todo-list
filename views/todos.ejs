@@ -11,16 +11,21 @@
     <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
-<main class="mainContainer">
+<main class="mainContainer row">
     
-        <section class="subContainer">
+        <section class="subContainer col-12 col-md-5">
             <form action="/todos/createTodo" method='POST'>
                 <input type="text" placeholder="Enter a task" class="form-control" id="taskField" name='todoItem'>
                 <button class="btn" type="submit">Add a task</button>
             </form>
+
+            <section class="subMainContainer">
+                <h2><%= user.userName.charAt(0).toUpperCase() + user.userName.slice(1) %> has <span class="numberOfTodos"> <%= left  %> </span>things left to do.</h2>
+                <p><a href="/logout">Logout</a></p>
+            </section>
         </section>
     
-        <section class="subContainer todoListContainer">
+        <section class="subContainer todoListContainer col-12 col-md-5">
             <h1 class="container_h1">To Do List</h1>
             <ul>
             <% todos.forEach( el => { %>
@@ -31,12 +36,10 @@
             <% }) %>
             </ul>
         </section>
+      
 </main>
 
-    <section class="subMainContainer">
-        <h2><%= user.userName.charAt(0).toUpperCase() + user.userName.slice(1) %> has <%= left %> things left to do.</h2>
-        <p><a href="/logout">Logout</a></p>
-    </section>
+  
 
     <script src="js/main.js"></script>
 </body>
